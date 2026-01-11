@@ -1,4 +1,10 @@
 import 'package:flutter/material.dart';
+import 'pages/about_us_page.dart';
+import 'pages/join_us_page.dart';
+import 'pages/announcement_page.dart';
+import 'pages/latest_news_page.dart';
+import 'pages/resources_page.dart';
+import 'pages/blog_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -7,116 +13,228 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: '绥院Linux爱好者团队',
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // TRY THIS: Try running your application with "flutter run". You'll see
-        // the application has a purple toolbar. Then, without quitting the app,
-        // try changing the seedColor in the colorScheme below to Colors.green
-        // and then invoke "hot reload" (save your changes or press the "hot
-        // reload" button in a Flutter-supported IDE, or press "r" if you used
-        // the command line to start the app).
-        //
-        // Notice that the counter didn't reset back to zero; the application
-        // state is not lost during the reload. To reset the state, use hot
-        // restart instead.
-        //
-        // This works for code too, not just values: Most code changes can be
-        // tested with just a hot reload.
-        colorScheme: .fromSeed(seedColor: Colors.deepPurple),
+        brightness: Brightness.dark,
+        scaffoldBackgroundColor: const Color(0xFF111111),
+        primarySwatch: Colors.purple,
+        colorScheme: ColorScheme.dark(
+          primary: const Color(0xFF5b20e6),
+          secondary: const Color(0xFF6f6f6f),
+          background: const Color(0xFF111111),
+          surface: const Color(0xFF222222),
+          onPrimary: Colors.white,
+          onSecondary: Colors.white,
+          onBackground: Colors.white,
+          onSurface: Colors.white,
+        ),
+        textTheme: const TextTheme(
+          bodyLarge: TextStyle(color: Colors.white),
+          bodyMedium: TextStyle(color: Colors.white),
+          headlineLarge: TextStyle(color: Colors.white),
+          headlineMedium: TextStyle(color: Colors.white),
+          headlineSmall: TextStyle(color: Colors.white),
+        ),
+        pageTransitionsTheme: const PageTransitionsTheme(
+          builders: {
+            TargetPlatform.android: CupertinoPageTransitionsBuilder(),
+            TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
+            TargetPlatform.linux: FadeUpwardsPageTransitionsBuilder(),
+            TargetPlatform.macOS: CupertinoPageTransitionsBuilder(),
+            TargetPlatform.windows: FadeUpwardsPageTransitionsBuilder(),
+          },
+        ),
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => const HomePage(),
+        '/about_us': (context) => AboutUsPage(),
+        '/join_us': (context) => JoinUsPage(),
+        '/announcement': (context) => AnnouncementPage(),
+        '/latest_news': (context) => LatestNewsPage(),
+        '/resources': (context) => ResourcesPage(),
+        '/blog': (context) => BlogPage(
+              title: 'Linux社2024年招新活动圆满结束',
+              content: '本次招新活动共有120余名同学报名，经过面试选拔，最终有50名同学加入了Linux社。新成员将在接下来的培训中学习Linux系统基础、编程技术和开源项目开发等内容。',
+            ),
+      },
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
-
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
-  }
+class HomePage extends StatelessWidget {
+  const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
     return Scaffold(
-      appBar: AppBar(
-        // TRY THIS: Try changing the color here to a specific color (to
-        // Colors.amber, perhaps?) and trigger a hot reload to see the AppBar
-        // change color while the other colors stay the same.
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
-      ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          //
-          // TRY THIS: Invoke "debug painting" (choose the "Toggle Debug Paint"
-          // action in the IDE, or press "p" in the console), to see the
-          // wireframe for each widget.
-          mainAxisAlignment: .center,
-          children: [
-            const Text('You have pushed the button this many times:'),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ],
+      appBar: Header(),
+      body: SingleChildScrollView(
+        child: Container(
+          padding: const EdgeInsets.all(20),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Image.asset(
+                'assets/img/logo.jpg',
+                width: 200,
+                height: 200,
+                fit: BoxFit.contain,
+              ),
+              const SizedBox(height: 20),
+              const Text(
+                'Suihua University Linux Enthusiast Team',
+                style: TextStyle(
+                  fontFamily: 'Monospace',
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              const SizedBox(height: 20),
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 40),
+                child: Text(
+                  '绥院Linux爱好者团队，英文名称“Suihua University Linux Enthusiast Team”，缩写“SULET”，由本校Linux爱好者于2022年12月策划并组建。团队秉持开源互助共享的原则，在这里可以学习和交流Linux技术。遇到问题，可以和志同道合的同学交流，大家都会耐心解答。团队旨在提供一个良好的Linux学习与交流的环境，促进共同发展。当然，更重要的是在这里可以结识到志同道合的好友！',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: 16, height: 1.5),
+                ),
+              ),
+              const SizedBox(height: 40),
+              // 导航按键区域
+              Container(
+                width: double.infinity,
+                padding: const EdgeInsets.symmetric(horizontal: 40),
+                child: Wrap(
+                  spacing: 20,
+                  runSpacing: 20,
+                  alignment: WrapAlignment.center,
+                  children: [
+                    _buildNavButton(context, '关于我们', () {
+                      Navigator.pushNamed(context, '/about_us');
+                    }),
+                    _buildNavButton(context, '加入我们', () {
+                      Navigator.pushNamed(context, '/join_us');
+                    }),
+                    _buildNavButton(context, '揭示板', () {
+                      Navigator.pushNamed(context, '/announcement');
+                    }),
+                    _buildNavButton(context, '最新动态', () {
+                      Navigator.pushNamed(context, '/latest_news');
+                    }),
+                    _buildNavButton(context, '资源下载', () {
+                      Navigator.pushNamed(context, '/resources');
+                    }),
+                    _buildNavButton(context, '博客', () {
+                      Navigator.pushNamed(context, '/blog');
+                    }),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
+    );
+  }
+
+  Widget _buildNavButton(BuildContext context, String title, VoidCallback onTap) {
+    return ElevatedButton(
+      onPressed: onTap,
+      style: ElevatedButton.styleFrom(
+        backgroundColor: const Color(0xFF5b20e6),
+        foregroundColor: Colors.white,  // 显式设置文字颜色为白色
+        padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+        textStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(8),
+        ),
+        elevation: 4,
+        shadowColor: const Color(0xFF5b20e6).withOpacity(0.3),
+      ),
+      child: Text(title),
+    );
+  }
+}
+
+class ResponsiveSecondaryLayout extends StatelessWidget {
+  final Widget child;
+  
+  const ResponsiveSecondaryLayout({super.key, required this.child});
+
+  @override
+  Widget build(BuildContext context) {
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        // 根据屏幕宽度计算内容区域宽度，最大80%，最小90%屏幕宽度
+        double contentWidth = constraints.maxWidth * 0.9;
+        if (constraints.maxWidth > 1200) {
+          contentWidth = constraints.maxWidth * 0.8;
+        } else if (constraints.maxWidth > 768) {
+          contentWidth = constraints.maxWidth * 0.85;
+        }
+        
+        return Center(
+          child: Container(
+            width: contentWidth,
+            decoration: const BoxDecoration(
+              color: Color(0xFF111111),
+            ),
+            child: child,
+          ),
+        );
+      },
+    );
+  }
+}
+
+class Header extends StatelessWidget implements PreferredSizeWidget {
+  const Header({super.key});
+
+  @override
+  Size get preferredSize => const Size.fromHeight(60);
+
+  @override
+  Widget build(BuildContext context) {
+    return AppBar(
+      title: const Text('绥院Linux爱好者团队'),
+      backgroundColor: const Color(0xFF111111),
+    );
+  }
+
+  Widget _buildNavItem(BuildContext context, String title, VoidCallback onTap) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 15),
+      child: InkWell(
+        onTap: onTap,
+        splashColor: Colors.purple.withOpacity(0.3),
+        borderRadius: BorderRadius.circular(5),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 10),
+          child: Text(
+            title,
+            style: const TextStyle(
+              color: Colors.white,
+              fontSize: 16,
+              fontWeight: FontWeight.w500,
+            ),
+          ),
+        ),
       ),
     );
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
