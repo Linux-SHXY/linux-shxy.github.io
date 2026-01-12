@@ -170,7 +170,7 @@ class JoinUsPage extends StatelessWidget {
                                 borderRadius: BorderRadius.circular(AppTheme.borderRadiusMedium),
                               ),
                             ),
-                            child: Text('立即申请加入'),
+                            child: Text('立即申请加入（开发中...）', style: AppTheme.bodyText),
                           ),
                         ),
                       ],
@@ -199,15 +199,15 @@ class JoinUsPage extends StatelessWidget {
                           children: [
                             _buildContactItem(
                               icon: Icons.email,
-                              text: 'linuxclub@example.com',
+                              text: 'shxy_linux@example.com',
                             ),
                             _buildContactItem(
                               icon: Icons.phone,
-                              text: '138-0000-0000',
+                              text: '691654156',
                             ),
                             _buildContactItem(
                               icon: Icons.location_on,
-                              text: '学校科技楼A座501室',
+                              text: 'None',
                             ),
                           ],
                         ),

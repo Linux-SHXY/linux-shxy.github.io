@@ -163,24 +163,14 @@ class AboutUsPage extends StatelessWidget {
                           crossAxisSpacing: AppTheme.spacingLarge,
                           children: [
                             _buildTeamMember(
-                              name: '张三',
-                              role: '会长',
-                              description: 'Linux系统专家，热爱开源文化',
+                              name: 'wiwyil2tr',
+                              role: '~',
+                              description: '~',
                             ),
                             _buildTeamMember(
-                              name: '李四',
-                              role: '副会长',
-                              description: '后端开发工程师，精通Python和C++',
-                            ),
-                            _buildTeamMember(
-                              name: '王五',
-                              role: '技术部长',
-                              description: '前端开发工程师，擅长React和Flutter',
-                            ),
-                            _buildTeamMember(
-                              name: '赵六',
-                              role: '宣传部长',
-                              description: 'UI/UX设计师，关注用户体验',
+                              name: 'Luminous',
+                              role: '~',
+                              description: '~',
                             ),
                           ],
                         ),

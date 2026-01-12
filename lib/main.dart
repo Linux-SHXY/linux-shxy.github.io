@@ -97,7 +97,7 @@ class HomePage extends StatelessWidget {
               const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 40),
                 child: Text(
-                  '绥院Linux爱好者团队，英文名称“Suihua University Linux Enthusiast Team”，缩写“SULET”，由本校Linux爱好者于2022年12月策划并组建。团队秉持开源互助共享的原则，在这里可以学习和交流Linux技术。遇到问题，可以和志同道合的同学交流，大家都会耐心解答。团队旨在提供一个良好的Linux学习与交流的环境，促进共同发展。当然，更重要的是在这里可以结识到志同道合的好友！',
+                  '新的绥院Linux爱好者团队以 QQ 群和官网为主体，多种交流平台共存的大型交流互助社区。用户可以选择最方便的平台交流，官方动态统一通过官网发布；文件统一使用 GitHub 团队仓库或 123 云盘分享。GitHub 仓库：https://github.com/Linux-SHXY官网：https://linux.shxy.tuneful.org.cn',
                   textAlign: TextAlign.center,
                   style: TextStyle(fontSize: 16, height: 1.5),
                 ),

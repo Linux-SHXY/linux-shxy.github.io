@@ -36,38 +36,10 @@ class LatestNewsPage extends StatelessWidget {
                   Column(
                     children: [
                       _buildNewsItem(
-                        title: '协会招新活动圆满结束',
-                        date: '2024-09-15',
-                        content: 'Linux爱好者协会2024年秋季招新活动圆满结束，共招收新成员50名。新成员来自不同专业，对Linux系统和开源技术充满热情。',
-                        imageUrl: 'https://example.com/news1.jpg',
-                      ),
-                      SizedBox(height: AppTheme.spacingLarge),
-                      _buildNewsItem(
-                        title: '技术分享会：Linux内核原理',
-                        date: '2024-08-28',
-                        content: '协会举办了Linux内核原理技术分享会，邀请了资深Linux工程师讲解内核架构和工作原理，参会成员受益匪浅。',
-                        imageUrl: 'https://example.com/news2.jpg',
-                      ),
-                      SizedBox(height: AppTheme.spacingLarge),
-                      _buildNewsItem(
-                        title: '开源项目实践：社区网站开发',
-                        date: '2024-08-10',
-                        content: '协会启动了开源项目实践活动，组织成员开发社区网站，锻炼团队协作和项目开发能力。',
-                        imageUrl: 'https://example.com/news3.jpg',
-                      ),
-                      SizedBox(height: AppTheme.spacingLarge),
-                      _buildNewsItem(
-                        title: '暑期技术培训营圆满完成',
-                        date: '2024-07-25',
-                        content: 'Linux爱好者协会暑期技术培训营圆满完成，培训内容包括Linux系统管理、Shell编程和Web开发等。',
-                        imageUrl: 'https://example.com/news4.jpg',
-                      ),
-                      SizedBox(height: AppTheme.spacingLarge),
-                      _buildNewsItem(
-                        title: '参加全国大学生开源技术竞赛',
-                        date: '2024-07-10',
-                        content: '协会代表队参加全国大学生开源技术竞赛，获得团队三等奖，展现了协会成员的技术实力。',
-                        imageUrl: 'https://example.com/news5.jpg',
+                        title: '开发中...',
+                        date: 'None',
+                        content: '',
+                        imageUrl: '',
                       ),
                     ],
                   ),
@@ -89,72 +61,8 @@ class LatestNewsPage extends StatelessWidget {
     return FadeInAnimation(
       delay: 300,
       child: Container(
-        width: double.infinity,
-        padding: EdgeInsets.all(AppTheme.spacingLarge),
-        decoration: BoxDecoration(
-          color: AppTheme.cardColor,
-          borderRadius: BorderRadius.circular(AppTheme.borderRadiusMedium),
-          boxShadow: [AppTheme.defaultShadow],
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            // 新闻图片
-            Container(
-              height: 200,
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: NetworkImage(imageUrl),
-                  fit: BoxFit.cover,
-                ),
-                borderRadius: BorderRadius.circular(AppTheme.borderRadiusSmall),
-              ),
-            ),
-            SizedBox(height: AppTheme.spacingMedium),
-            
-            // 新闻标题
-            Text(
-              title,
-              style: AppTheme.heading3,
-            ),
-            SizedBox(height: AppTheme.spacingSmall),
-            
-            // 新闻日期
-            Text(
-              date,
-              style: AppTheme.bodyTextSmall.copyWith(
-                color: AppTheme.textSecondaryColor,
-              ),
-            ),
-            SizedBox(height: AppTheme.spacingMedium),
-            
-            // 新闻内容
-            Text(
-              content,
-              style: AppTheme.bodyText,
-            ),
-            SizedBox(height: AppTheme.spacingMedium),
-            
-            // 阅读更多按钮
-            ElevatedButton(
-              onPressed: () {
-                // 跳转到新闻详情页面
-              },
-              style: ElevatedButton.styleFrom(
-                backgroundColor: AppTheme.primaryColor,
-                padding: EdgeInsets.symmetric(
-                  horizontal: AppTheme.spacingLarge,
-                  vertical: AppTheme.spacingSmall,
-                ),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(AppTheme.borderRadiusMedium),
-                ),
-              ),
-              child: Text('阅读更多'),
-            ),
-          ],
-        ),
-      ),
+        child: Text('None'),
+      )
     );
   }
 }
