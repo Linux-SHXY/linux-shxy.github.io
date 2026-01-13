@@ -5,46 +5,140 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- Add custom styles -->
 <style>
-  /* Use a dark background color */
+  /* 使用与主页一致的重置样式 */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
   body {
-    background-color: #111;
-	background-image: url('img/back.png');
-    color: #fff;
-    font-family:  sans-serif;
+    font-family: sans-serif;
+    line-height: 1.5;
+    color: #333;
+    background-color: #fff;
+  }
+
+  /* 头部导航栏样式 - 与主页一致 */
+#header {
+background: linear-gradient(to bottom, #DADCE4 0%, #DADCE4 , #fff , #fff 100%);
+  border-bottom: 1px solid #ddd;
+  padding: 10px 20px;
+}
+    #upperheader {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .header-left {
+      display: flex;
+      align-items: center;
+      flex: 1;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    #logo {
+      display: flex;
+      align-items: center;
+    }
+
+    #logo img {
+      width: 50px;
+      height: 50px;
+    }
+
+    .header-title {
+      font-size: 1.5em;
+      white-space: nowrap;
+    }
+
+    #navbar {
+      margin-left: auto;
+    }
+
+    #navbar ul {
+      display: flex;
+      list-style: none;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    #navbar a {
+      text-decoration: none;
+      padding: 5px 0;
+      white-space: nowrap;
+    }
+
+
+    #searchbox {
+      flex: 1;
+      text-align: right;
+      min-width: 200px;
+    }
+
+    #searchbox form {
+      display: inline-block;
+    }
+    /* 头部导航栏样式 - 修改部分结束 */
+
+
+  .logo {
+    display: flex;
+    align-items: center;
+  }
+
+  .logo img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .header-title {
+    font-size: 1.5em;
+    white-space: nowrap;
+    color: #333;
+  }
+
+  nav {
+    margin-left: auto;
+  }
+
+  nav ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+    flex-wrap: wrap;
     margin: 0;
     padding: 0;
   }
 
-  /* Use a monospaced font for the header */
-  header {
-
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem;
-  }
-
-  h1 {
-    margin: 0;
-    font-size: 2rem;
-  }
-
-  /* Use a subtle hover effect for the links */
   nav a {
-    color: #fff;
+    color: #333;
     text-decoration: none;
-    margin-right: 1rem;
+    padding: 5px 0;
+    white-space: nowrap;
     transition: all 0.3s ease;
   }
 
   nav a:hover {
-    color: #f1c40f;
+    color: #3366FF;
   }
 
+  /* 主内容区域 */
   main {
     max-width: 800px;
     margin: 2rem auto;
     padding: 0 1rem;
+  }
+
+  h1 {
+    font-size: 2.0rem;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    color: #3366FF;
   }
 
   h2 {
@@ -52,10 +146,6 @@
     margin-top: 0;
   }
 
-  h1 {
-    font-size: 2.0rem;
-    margin-top: 0;
-  }
   ul {
     list-style: none;
     margin: 0;
@@ -67,7 +157,6 @@
   }
 
   a {
-    color: #2980b9;
     text-decoration: none;
     transition: all 0.3s ease;
   }
@@ -76,12 +165,75 @@
     color: #2c3e50;
   }
 
-  /* Add a simple animation for the main content */
-  p {
+  .blog-post {
+    background-color: #F8F9FA;
+    color: #333;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 0;
+    border: 1px solid #ddd;
     animation: fade-in 1s ease-in-out;
   }
 
-  /* Define the animation keyframes */
+  .blog-post h2 {
+    margin-top: 0;
+    color: #1794D1; /* 标题颜色 */
+    font-size: 1.3em;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 8px;
+    margin-bottom: 12px;
+  }
+
+  .blog-post h3 {
+    color: #26475b;
+    font-size: 1.1em;
+    margin: 15px 0 8px 0;
+  }
+
+  .blog-post p {
+    margin-bottom: 10px;
+    line-height: 1.6;
+  }
+
+  .blog-post ul {
+    margin-left: 20px;
+    margin-bottom: 10px;
+  }
+
+  .blog-post li {
+    margin-bottom: 5px;
+  }
+
+  .blog-post .meta {
+    color: #666;
+    font-size: 0.9em;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid #ddd;
+  }
+
+  /* 按钮样式 - 与主页一致 */
+  .debian-button, .button1 {
+    display: inline-block;
+    background-color: #5b20e6;
+    color: white;
+    padding: 7px 10px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 1.2em;
+    transition: background-color 0.3s, transform 0.2s;
+  }
+
+  .debian-button:hover, .button1:hover {
+    background-color: #4a1ac7;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  /* 定义动画关键帧 */
   @keyframes fade-in {
     0% {
       opacity: 0;
@@ -92,82 +244,114 @@
       transform: translateY(0);
     }
   }
-  .button1 {
-background-color: #5b20e6;
-color: white;
-padding: 14px 20px;
-margin: 8px 0;
-border: none;
-cursor: pointer;
-/*width: 100%;*/
-border-radius: 8px;
-}
-	        .blog-post {
-            background-color: #333;
-            padding: 20px;
-            margin-bottom: 20px;
-            border-radius: 5px;
-        }
-        .blog-post h2 {
-            margin-top: 0;
-            color: #fff;
-        }
-        .blog-post p {
-            color: #ccc;
-        }
 
-.footer {
-    background-color: #333;
-    color: white;
+  /* 页脚样式 - 与主页一致 */
+  footer {
+    background-color: #f5f5f5;
+    color: #333;
     text-align: center;
-    padding: 10px 0;
+    padding: 20px 15px;
+    margin-top: 20px;
+    border-top: 1px solid #ddd;
+    font-size: 0.9em;
+  }
 
-    bottom: 0;
-    width: 100%;
-}
-.footer a {
-    color: #5cb85c;
+  footer a {
+    color: #3366FF;
     text-decoration: none;
-}
-.footer a:hover {
+  }
+
+  footer a:hover {
     text-decoration: underline;
-}
+  }
 
+  /* 响应式设计 */
+  @media(max-width: 992px) {
+    nav ul {
+      gap: 15px;
+    }
+  }
+
+  @media(max-width: 768px) {
+    header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    
+    .header-left {
+      width: 100%;
+      justify-content: space-between;
+    }
+    
+    nav {
+      margin-left: 0;
+      width: 100%;
+    }
+    
+    nav ul {
+      justify-content: flex-start;
+      gap: 15px;
+    }
+    
+    main {
+      padding: 0 10px;
+    }
+    
+    .blog-post {
+      padding: 15px;
+    }
+  }
+
+  @media(max-width: 480px) {
+    .header-left {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    
+    nav ul {
+      flex-direction: column;
+      gap: 10px;
+    }
+    
+    main {
+      padding: 0 5px;
+    }
+    
+    .blog-post {
+      padding: 12px;
+    }
+    
+    h1 {
+      font-size: 1.8rem;
+    }
+  }
 </style>
-
 <title>SULET</title>    <link rel="shortcut icon" type="image/x-icon" href="img/logo.jpg">
 </head>
 <body>
-  <header>
-	  <h1>绥院Linux爱好者团队</h1>
-    <nav>
-      <a href="index.html">首页</a>
-      <a href="https://github.com/Linux-SHXY">Github</a>
-      <a href="blog.html">动态</a>
-      <a href="index.html#about">关于</a>
-      <a href="index.html#join">加入我们</a>
-    </nav>
-  </header>
+<div id="header">
+  <div id="upperheader">
+    <div class="header-left">
+      <div id="logo">
+        <a href="index.html" title="SULET Home"><img src="img/logo.jpg" alt="SULET"></a>
+      </div>
+      <h2 class="header-title">绥院Linux爱好者团队</h2>
+      <div id="navbar">
+        <ul>
+          <li><a href="index.html" title="SULET Home">首页</a></li>
+          <li><a href="https://github.com/Linux-SHXY" title="SULET Github">Github</a></li>
+          <li><a href="blog.html" title="SULET Blog">动态</a></li>
+          <li><a href="index.html/#about" title="About SULET">关于</a></li>
+          <li><a href="index.html/#join" title="Join SULET">加入我们</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
 
   <main>
-
-<!--测试时这一部分删去-->
- <h1>请记住我们的新网址：<a href="http://linux.shxy.tuneful.org.cn/blog.html">linux.shxy.tuneful.org.cn/blog.html</a></h1>
-    <h2>将在 5 秒钟后自动跳转</h2>
-        <meta http-equiv="refresh" content="5; URL=http://linux.shxy.tuneful.org.cn/blog.html">
-</br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>
-<!--以上-->
-
-
-
-
-
-
-
-
- <h1>请记住我们的新网址：<a href="http://linux.shxy.tuneful.org.cn/blog.html">linux.shxy.tuneful.org.cn/blog.html</a></h1>
-    <h2>将在 5 秒钟后自动跳转</h2>
-        <meta http-equiv="refresh" content="5; URL=http://linux.shxy.tuneful.org.cn/blog.html">
 	  <h2>最新动态:</h2>  </br>
 	  <!--动态添到这行下面, 上面是最新的,下面是较旧的, 格式为:
 
@@ -180,6 +364,293 @@ border-radius: 8px;
 
 
 
+		  <div class="blog-post"> 
+		  <h2>网站更新(20250821)</h2>
+		  <p>为了今后维护更方便，我们把 首页（index）、关于我们（about） 和 加入我们（join） 三个页面的内容合并到了同一页面。
+		  即日起，访问<a href= "https://linux.shxy.tuneful.org.cn">https://linux.shxy.tuneful.org.cn</a> 即可一次性浏览全部信息</p> 
+		  </div>
+		  
+
+		  <div class="blog-post"> 
+		  <h2>优化版Debian更新(20250525)</h2>
+		  <p> 本次更新主要内容：</br>
+
+		  升级到Debian Sid 全新从零构建</br>
+		  去除一切美化效果，采用TraditioalOk(原gnome2里的clearlooks)为默认主题，加快运行速度，提高性能和界面辨识度，适合专业人士使用</br>
+	进一步进行了精简，去除不必要的内容，减少资源浪费</br>
+	LiveCD默认使用root账户登录，方便进行系统管理，建议一定要慎重操作，安装到硬盘还是需要创建普通用户</br>
+	修复了一些已知问题</br>
+	<a href="https://wiwyil2tr.github.io/yhbos">点击这里查看详情</a>
+</p> 
+		  </div>
+			<div class="blog-post"> 
+
+		  <h2>添加网页背景(20240925)</h2>
+		  <p>添加了linux终端的模糊背景, 使网页看起来比较现代化, 不再那么单调 </p> 
+		  </div>
+
+		  <div class="blog-post"> 
+		  <h2>优化版Debian安装后配置脚本(20240813)</h2>
+		  <p>
+		  优化版Debian安装后配置脚本</br>
+
+		  安装后配置脚本已经推出，欢迎大家使用测试</br>
+
+安装完成后, 一定要先打开终端（ctrl+alt+t），然后输入 bash -c "$(curl -L https://github.com/wiwyil2tr/optimizeddebian/raw/main/postinstall.sh)"回车
+</br>
+根据提示操作后重启，就可以使用了
+</br>
+脚本执行后，会自动配置软件源，然后询问是否更新系统，可以按需选择
+</br>
+之后可以选择界面风格，分为以下：
+</br>
+gnome2风格：
+
+</br><img src="https://storage.deepin.org/thread/202408041125567887_Screenshot_20240804_191522.png" width="100%"></br>
+</br>
+顶栏+dock风格：
+
+</br><img src="https://storage.deepin.org/thread/202408041126141847_Screenshot_20240804_191249.png" width="100%"></br>
+</br>
+windows风格：
+
+</br><img src="https://storage.deepin.org/thread/202408041126268314_Screenshot_20240804_191133.png" width="100%"></br>
+</br>
+也可以选“skip”跳过此步
+</br>
+最后重启，就能使用系统了</br>
+		  </p> 
+		  </div>
+
+		  <div class="blog-post">
+		  <h2>优化版DebianV3.1.1修正版(2024-07-29)</h2>
+		  下载链接: <a href="https://www.123pan.com/s/jR1SVv-lSB6d.html">https://www.123pan.com/s/jR1SVv-lSB6d.html</a>
+		  <p>本次更新主要内容：</br>
+
+		  修复efi安装时grub配置失败的问题</br>
+		  修复efi无法直接从光盘镜像启动的问题</br>
+		  更新版本号规则:无功能更新,只是小修小补,从第二个小数点开始,如1.0.1,1.0.2,小功能更新从第一个小数点开始,如1.1,1.2,大功能更新或上游大版本升级直接更新大版本号,如1.0,2.0,3.0</br> </p> 
+		  </div>
+
+
+
+<div class="blog-post"> <h2>优化版Debian V3.1 (2024-07-28)</h2> <p>
+	<h2>优化版Debian V3.1</h2></br>
+
+
+--By wiwyil2tr@gmail.com</br>
+
+
+下载链接：<a href="https://www.123pan.com/s/jR1SVv-0UB6d.html">123云盘</a></br>
+
+
+<h3>本次更新主要内容：</h3></br>
+
+
+
+* 修复安装时grub配置失败的问题</br>
+
+* 增加登录时选择用户的功能，无需手动输入用户名</br>
+
+* 增加常用打印机驱动</br>
+
+* 增加光盘刻录软件brasero</br>
+
+* 换了一套新的主题(mojave gtk主题, papirus图标主题以及elementary壁纸)</br>
+
+* 删除一些不必要的软件包</br>
+
+	<h3>优化版系统特性：</h3></br>
+
+
+    预装常用驱动程序</br>
+
+    基于debian testing，滚动更新， 软件始终保持最新</br>
+
+    稳定性高，真机实测，debian是一个以稳定性著称的发行版</br>
+
+    集成常用软件，包括办公，网页浏览，图片处理，输入法等，开箱即用</br>
+
+    完全纯净，无广告，无捆绑</br>
+
+    人性化操作，采用广受欢迎的gnome2桌面的延续-mate桌面环境，经典易于上手</br>
+
+    轻量高效，占用资源低，可以充分发挥电脑性能</br>
+
+
+	<h3>预装的部分常用软件</h3></br>
+
+
+    办公：libreoffice</br>
+
+    浏览器：火狐浏览器</br>
+
+    邮件：thunderbird</br>
+
+    视频播放器：smplayer</br>
+
+    音频播放器：audacious</br>
+
+    图片处理：gimp</br>
+
+    命令查询：tldr</br>
+
+    输入法：fcitx</br>
+
+    星火应用商店，即深度社区商店，具有大量国人常用软件如qq，微信，wps等</br>
+
+</br><img src="https://storage.deepin.org/thread/202407280535202081_VirtualBox_debian_28_07_2024_13_18_02.png" width="100%"></br>
+</br><img src="https://storage.deepin.org/thread/202407280535436114_VirtualBox_debian_28_07_2024_13_20_16.png" width="100%"></br>
+</br><img src="https://storage.deepin.org/thread/202407280535544658_VirtualBox_debian_28_07_2024_13_21_08.png" width="100%"></br>
+
+</br><img src="https://storage.deepin.org/thread/202407280543421318_VirtualBox_debian_28_07_2024_13_42_19.png" width="100%"></br>
+</br><img src="https://storage.deepin.org/thread/202407280543554425_VirtualBox_debian_28_07_2024_13_43_04.png" width="100%"></br>
+新手尝试Linux时可以一试，不喜勿喷</br>
+
+
+基本上能做到开箱即用,想在真机上装debian的新手可以试试</br>
+
+
+安装教程: 先在U盘内安装ventoy,详见https://www.ventoy.net 安装好后将镜像复制到U盘分区内</br>
+
+
+从U盘启动,选择sulet-optimized-debian-live-testing-v3.1-amd64-mate.iso启动项</br>
+
+
+启动后,选择最上面第一项回车</br>
+
+
+启动后,点击桌面上的"Install Debian"就可以安装了,具体步骤详见manjaro的安装教程视频</br>
+
+【重要提示】安装完成后, 一定要更改一下软件源(位于/etc/apt/sources.list)，可以在网上自行搜索软件源, 然后把版本改成 testing ,再更新一下软件源"sudo apt update"，还可以更新一下系统(sudo apt full-upgrade)就可以使用了
+</br>
+-----------------------------------------------------------------------</br>
+
+
+欢迎使用优化版系列系统,并提出宝贵意见 系统将会不定期更新 版本号规则:无功能更新,只是小修小补,从小数点第二位开始,如1.01,1.02,小功能更新从小数点第一位开始,如1.1,1.2,大功能更新或上游大版本升级直接更新大版本号,如1.0,2.0,3.0 本系列系统旨在为用户提供免除痛苦,开箱即用,干净轻量,不夹带私货,靠近上游的linux修改定制版
+
+</br>
+
+</p> </div>-
+
+	  <div class="blog-post"> <h2>绥化学院Linux爱好者团队新网站建成(2024-07-20)</h2>
+		  <p>感谢团队成员@Tuneful的"天放网"的大力支持， 绥院Linux爱好者团队有了新的网站:<a href="http://linux.shxy.tuneful.org.cn">linux.shxy.tuneful.org.cn</a></br>新的网站目前由团队成员@wiwyil2tr维护，访问速度更快， 欢迎大家访问！ </p> 
+	  </div>
+<div class="blog-post"> <h2>优化版Debian V3 全新发布(2024-07-10)</h2> <p>
+	<h2>	优化版Linux Debian v3.0制作完成</h2> </br>
+	<h2>优化版Debian V3.0</h2></br>
+
+
+--By wiwyil2tr@gmail.com</br>
+
+
+下载链接：<a href="https://www.123pan.com/s/jR1SVv-GPB6d.html">123云盘</a></br>
+
+<h3>本次更新主要内容：</h3></br>
+
+    更新debian testing到最新</br>
+
+    改用mate桌面环境</br>
+
+    视频播放器改用更易于操作的smplayer</br>
+
+    删除一些不必要的软件包</br>
+
+
+
+
+	<h3>优化版系统特性：</h3></br>
+
+
+    预装常用驱动程序</br>
+
+    基于debian testing，滚动更新， 软件始终保持最新</br>
+
+    稳定性高，真机实测，debian是一个以稳定性著称的发行版</br>
+
+    集成常用软件，包括办公，网页浏览，图片处理，输入法等，开箱即用</br>
+
+    完全纯净，无广告，无捆绑</br>
+
+    人性化操作，采用广受欢迎的gnome2桌面的延续-mate桌面环境，经典易于上手</br>
+
+    轻量高效，占用资源低，可以充分发挥电脑性能</br>
+
+
+	<h3>预装的部分常用软件</h3></br>
+
+
+    办公：libreoffice</br>
+
+    浏览器：火狐浏览器</br>
+
+    邮件：thunderbird</br>
+
+    视频播放器：smplayer</br>
+
+    音频播放器：audacious</br>
+
+    图片处理：gimp</br>
+
+    命令查询：tldr</br>
+
+    输入法：fcitx</br>
+
+    星火应用商店，即深度社区商店，具有大量国人常用软件如qq，微信，wps等</br>
+
+</br><img src="https://storage.deepin.org/thread/202407090936286473_1A7ADD13949CF24A9CCDE8820F025AC2.png" width="100%"></br>
+</br><img src="https://storage.deepin.org/thread/202407090936433256_1A7ADD13949CF24A9CCDEfd8820F025AC2.png" width="100%"></br>
+</br><img src="https://storage.deepin.org/thread/20240709093704884_Screenshot_20240709_172823.png" width="100%"></br>
+
+新手尝试Linux时可以一试，不喜勿喷</br>
+
+
+基本上能做到开箱即用,想在真机上装debian的新手可以试试</br>
+
+
+安装教程: 先在U盘内安装ventoy,详见https://www.ventoy.net 安装好后将镜像复制到U盘分区内</br>
+
+
+从U盘启动,选择sulet-optimized-debian-live-testing-v3-amd64-mate.iso启动项</br>
+
+
+启动后,选择最上面第一项回车</br>
+
+
+启动后,点击桌面上的"Install Debian"就可以安装了,具体步骤详见manjaro的安装教程视频</br>
+
+
+安装完成后, 更改一下软件源(位于/etc/apt/sources.list)，可以在网上自行搜索软件源, 然后把版本改成 testing ,再更新一下软件源"sudo apt update"就可以使用了 </br>
+-----------------------------------------------------------------------</br>
+
+
+欢迎使用优化版系列系统,并提出宝贵意见 系统将会不定期更新 版本号规则:无功能更新,只是小修小补,从小数点第二位开始,如1.01,1.02,小功能更新从小数点第一位开始,如1.1,1.2,大功能更新或上游大版本升级直接更新大版本号,如1.0,2.0,3.0 本系列系统旨在为用户提供免除痛苦,开箱即用,干净轻量,不夹带私货,靠近上游的linux修改定制版
+</br><a href="https://bbs.deepin.org/post/275657">深度论坛</a>
+</br>
+
+</p> </div>-
+<div class="blog-post"> <h2>优化版Debian v3 桌面环境调查(2024-06-15 09:07:00)</h2> <p>优化版debian好久没更新了, Ubuntu太不稳定, Debian软件包又太老了, 为了解决新手linux选择, 提供便于上手, 开箱即用的Linux, 我打算更新一下优化版的debian, 继续用轻量级桌面环境, 为了更方便新手, 打算改用MATE, 理由如下, 大家觉得继续使用xfce桌面环境还是改用mate好呢? 感谢大家参与</br>
+Mate的优点:</br>
+* 经典传统的界面, 兼顾mac和windows操作方式, 人性化易于操作, 容易上手</br>
+* 功能较多, 自带很多实用工具, 图形界面可完成大部分设置</br>
+* 更新较活跃</br>
+* Mate是曾经最受欢迎的gnome2的延续, 网上资料较多, 可完美适配各种教程和书籍</br>
+缺点</br>
+* 占用资源相对于xfce可能要多一点, 本机亲测大概多占0.1G</br>
+Mate界面: </br>
+	  <img src="img/mate.png" width="50%"></br>
+xfce默认界面:</br>
+	  <img src="img/xfce.png" width="50%"></br>
+优化版 debian v2 界面:</br>
+	  <img src="img/2.png" width="50%"></br>
+调查链接, 感谢大家参与:<a href="https://wj.qq.com/s2/14810402/2e48/">点击这里</a></p> </div>
+	  
+	  <div class="blog-post">
+	  <h2>i3wm主题更新(2024-05-05 14:51:00)</h2><p>
+	  我把i3wm主题配置更新了一下, 通过把i3配置文件中自启动相关的加上了--no-startup-id参数, 解决了启动之后鼠标一直转圈的问题, 修改了polybar配置, 解决了polybar系统托盘显示位置不固定的问题, 项目参见<a href="https://github.com/Linux-SHXY/sulet/blob/main/Linux%E8%BD%AF%E4%BB%B6%E5%92%8C%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E5%88%86%E4%BA%AB/My_i3wm_theme_configure.md">Linux软件和配置文件分享
+
+/My_i3wm_theme_configure.md</a></p>
+	  </div>
 		  
 	 <div class="blog-post"> <p>
 	  <h2> 绥院Linux爱好者团队全新升级(2024-05-03 17:52:00) </h2>
@@ -208,8 +679,15 @@ QQ群:</br><img src="img/qq.jpg" width="50%"></br>
   </br>  </main>
 </body>
 
-<div class="footer">
-   
-</div>
+<footer id="footer">
+  <hr>
+  <p>如果您想联系我们，请阅读我们的<a href="#join">联系方式页面</a>. 网站的源代码可<a href="https://github.com/Linux-SHXY">在此处找到</a>.</p>
+  <p><img src="img/logo.jpg" width="25" alt="SULET Logo"> Copyright &copy; 2022-2025 Suihua University Linux Enthusiast Team</p>
+  <p>
+    <a href="http://www.beian.gov.cn/" target="_blank">辽ICP备2024035379号-2</a>
+    <img src="img/bzan.png" width="20" alt="备案图标">
+    <a href="https://beian.mps.gov.cn/#/query/webSearch?code=21102102000269" target="_blank">辽公网安备21102102000269号</a>
+  </p>
+</footer>
 
 </html>
