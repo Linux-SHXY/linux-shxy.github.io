@@ -1,298 +1,547 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>SULET</title>
-  <link rel="shortcut icon" type="image/x-icon" href="img/logo.jpg"/>
+  <meta charset="utf-8">
+  <title>SULET - 绥院Linux爱好者团队</title>
+  <meta name="Description" content="绥院Linux爱好者团队 - Suihua University Linux Enthusiast Team">                                                                                                                                                                                       
+  <meta name="Generator" content="WML 2.32.0">
+  <meta name="Modified" content="2024-01-11 03:25:57">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="mobileoptimized" content="300">
+  <meta name="HandheldFriendly" content="true">
+  <link rel="shortcut icon" href="img/logo.jpg">
   <style>
-    /* ===== 通用 ===== */
+    /* 重置所有边距和内边距 */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
-    background-color: #111;
-	background-image: url('img/back.png');
-    color: #fff;
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-  }
-
-  /* Use a monospaced font for the header */
-  header {
-
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem;
-  }
-
-
-    h1{margin:0;font-size:2rem;}
-    nav a{
-      color:#fff;
-      margin-right:1rem;
-      text-decoration:none;
-      transition:.3s;
+      font-family: sans-serif;
+      line-height: 1.5;
+      color: #333;
+      background-color: #fff;
     }
-    nav a:hover{color:#f1c40f;}
-    main{max-width:800px;margin:2rem auto;padding:0 1rem;}
-    .section{margin-bottom:10px;}
-    .section h2{
-      margin:0 0 5px;
-      padding:4px 6px;
-      font-size:15px;
-      color:#6f6;
-      background:#222;
-      border-bottom:1px solid #333;
-    }
-    .section-content{padding:5px;}
-    a{color:#1d99f3;text-decoration:none;transition:.3s;}
-    a:hover{color:#2980b9;}
-    .button{
-      display:inline-block;
-      background:#222;
-      color:#ccc;
-      padding:3px 6px;
-      margin:2px;
-      border:1px solid #444;
 
-      cursor:pointer;
+    /* 头部导航栏样式 - 修改部分开始 */
+#header {
+background: linear-gradient(to bottom, #DADCE4 0%, #DADCE4 , #fff , #fff 100%);
+  border-bottom: 1px solid #ddd;
+  padding: 10px 20px;
+}
+    #upperheader {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 15px;
     }
-    .button:hover{background:#333;color:#fff;}
-    .button1{
-      background:#5b20e6;
-      color:#fff;
+
+    .header-left {
+      display: flex;
+      align-items: center;
+      flex: 1;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    #logo {
+      display: flex;
+      align-items: center;
+    }
+
+    #logo img {
+      width: 50px;
+      height: 50px;
+    }
+
+    .header-title {
+      font-size: 1.5em;
+      white-space: nowrap;
+    }
+
+    #navbar {
+      margin-left: auto;
+    }
+
+    #navbar ul {
+      display: flex;
+      list-style: none;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    #navbar a {
+      text-decoration: none;
+      padding: 5px 0;
+      white-space: nowrap;
+    }
+
+
+    #searchbox {
+      flex: 1;
+      text-align: right;
+      min-width: 200px;
+    }
+
+    #searchbox form {
+      display: inline-block;
+    }
+    /* 头部导航栏样式 - 修改部分结束 */
+
+    /* Splash 区域 - 更紧凑 */
+    #splash {
+      background-color: #26475b;
+      background-image: url('img/back.png');
+      background-size: cover;
+      background-position: center;
+      text-align: center;
+      padding: 30px 20px;
+      margin: 0;
+      color: white;
+    }
+
+    #splash .logo-container {
+      margin-bottom: 15px;
+    }
+
+    #splash .logo-container img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      border: 3px solid white;
+    }
+
+    #splash h1 {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    #splash .subtitle {
+      font-size: 1.5em;
+      margin-bottom: 15px;
+      font-weight: 300;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    }
+
+    #splash .description {
+      max-width: 900px;
+      margin: 0 auto 20px auto;
+      font-size: 1em;
+      line-height: 1.5;
+      text-align: center;
+      padding: 0 10px;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    }
+
+    #splash .button-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 15px;
+    }
+
+    /* 主内容区域 - 更紧凑 */
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 0;
+      padding: 15px;
+    }
+
+    .column {
+      flex: 1;
+      min-width: 300px;
+      padding: 15px;
+    }
+
+    /* 标题样式 */
+    .section-title {
+      font-size: 1.5em;
+      padding-bottom: 8px;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+
+    /* 内容块样式 */
+    .section {
+      margin-bottom: 20px;
+      background-color: #f9f9f9;
+      border-radius: 5px;
+      padding: 15px;
+      border: 1px solid #eee;
+    }
+
+    .section h2 {
+      color: #1794D1;
+      font-size: 1.2em;
+      margin-bottom: 10px;
+      padding-bottom: 5px;
+      border-bottom: 1px solid #e2e2e2;
+    }
+
+    .section h3 {
+      color: #26475b;
+      font-size: 1.1em;
+      margin: 15px 0 8px 0;
+    }
+
+    .section p {
+      margin-bottom: 10px;
+    }
+
+    .section ul {
+      margin-left: 20px;
+      margin-bottom: 10px;
+    }
+
+    .section li {
+      margin-bottom: 5px;
+    }
+
+    /* 按钮样式 */
+    .debian-button {
+      display: inline-block;
+      background-color: #5b20e6;
+      color: #fff;
+      padding: 7px 10px;
+      border-radius: 8px;
       padding:7px 10px;
-      margin:8px 0;
-      border:none;
-      border-radius:8px;
-      cursor:pointer;
+      text-decoration: none;
+      font-size: 1.2em;
+      transition: background-color 0.3s, transform 0.2s;
     }
 
-    /* ===== 三栏 ===== */
-    .columns{display:flex;gap:5px;padding:5px;}
-    .left-column,.right-column{
-      width:220px;
-      padding:5px;
-      background:transparent;
-      border:1px solid #333;
+    .debian-button:hover {
+      background-color: #4a1ac7;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
-    .middle-column{
-      flex:1;
-      padding:5px;
-      background:transparent;
-      border:1px solid #333;
+
+    /* 二维码布局 */
+    .qr-container {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      margin: 15px 0;
     }
-      .left-column,.right-column .section-content {
-    background-color: #2f2f2f;
-    opacity: 1;
-  }
-  /* Add a simple animation for the main content */
-  p {
-    animation: fade-in 1s ease-in-out;
-  }
 
-  /* Define the animation keyframes */
-  @keyframes fade-in {
-    0% {
-      opacity: 0;
-      transform: translateY(-10px);
+    .qr-item {
+      text-align: center;
+      margin: 10px;
     }
-    100% {
-      opacity: 1;
-      transform: translateY(0);
+
+    .qr-item img {
+      width: 60%;
+      border: 1px solid #ddd;
+      background-color: #fff;
     }
-  }
 
-.left-column{
-  display:flex;          
-  flex-direction:column;
-  height:100vh; 
-
-  box-sizing:border-box;
-}
-
-
-.left-column .section{
-  flex:1 1 auto;         
-  display:flex;
-  flex-direction:column;
-}
-
-
-.left-column .section-content{
-  flex:1 1 auto;
-  overflow-y:auto;
-}
-.right-column .section-content{
-  flex:1 1 auto;
-  overflow-y:auto;
-}
-
-    /* ===== 其他 ===== */
-    .footer{
-      background:#333;
-      color:#fff;
-      text-align:center;
-      padding:10px 0;
+    /* 资源列表 */
+    .resource-list {
+      list-style: none;
+      margin-left: 0;
     }
-    .footer a{color:#5cb85c;}
-    .footer a:hover{text-decoration:underline;}
+
+    .resource-list li {
+      margin-bottom: 8px;
+      padding-left: 20px;
+      position: relative;
+    }
+
+    .resource-list li:before {
+      content: "•";
+      color: #1794D1;
+      font-weight: bold;
+      position: absolute;
+      left: 0;
+    }
+
+    /* PDF查看器 */
+    .pdf-container {
+      margin: 15px 0;
+    }
+
+    /* 页脚样式 */
+    #footer {
+      background-color: #f5f5f5;
+      border-top: 1px solid #ddd;
+      padding: 20px 15px;
+      margin-top: 20px;
+      font-size: 0.9em;
+    }
+
+    #footer p {
+      margin-bottom: 10px;
+    }
+
+    #footer a {
+      color: #1794D1;
+      text-decoration: none;
+    }
+
+    #footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* 响应式设计 */
+    @media(max-width: 992px) {
+      #navbar ul {
+        gap: 15px;
+      }
+    }
+
+    @media(max-width: 768px) {
+      #upperheader {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+      
+      .header-left {
+        width: 100%;
+        justify-content: space-between;
+      }
+      
+      #navbar {
+        margin-left: 0;
+        width: 100%;
+      }
+      
+      #navbar ul {
+        justify-content: flex-start;
+        gap: 15px;
+      }
+      
+      #searchbox {
+        width: 100%;
+        text-align: left;
+        min-width: auto;
+      }
+      
+      #splash h1 {
+        font-size: 2em;
+      }
+      
+      #splash .subtitle {
+        font-size: 1.2em;
+      }
+      
+      .row {
+        flex-direction: column;
+        padding: 10px;
+      }
+      
+      .column {
+        padding: 10px;
+      }
+      
+      #splash .button-container {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      #splash .debian-button {
+        width: 90%;
+        text-align: center;
+      }
+      
+      .qr-container {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+
+    @media(max-width: 480px) {
+      .header-left {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      
+      #navbar ul {
+        flex-direction: column;
+        gap: 10px;
+      }
+      
+      #splash {
+        padding: 20px 10px;
+      }
+      
+      #splash h1 {
+        font-size: 1.8em;
+      }
+      
+      .section-title {
+        font-size: 1.3em;
+      }
+      
+      .row {
+        padding: 5px;
+      }
+    }
   </style>
 </head>
-
 <body>
-  <header>
-    <h1>绥院Linux爱好者团队</h1>
-    <nav>
-      <a href="index.html">首页</a>
-      <a href="https://github.com/Linux-SHXY">Github</a>
-      <a href="blog.html">动态</a>
-      <a href="#about">关于</a>
-      <a href="#join">加入我们</a>
-    </nav>
-  </header>
-
-  <main> 
-
+<div id="header">
+  <div id="upperheader">
+    <div class="header-left">
+      <div id="logo">
+        <a href="index.html" title="SULET Home"><img src="img/logo.jpg" alt="SULET"></a>
+      </div>
+      <h2 class="header-title">绥院Linux爱好者团队</h2>
+      <div id="navbar">
+        <ul>
+          <li><a href="index.html" title="SULET Home">首页</a></li>
+          <li><a href="https://github.com/Linux-SHXY" title="SULET Github">Github</a></li>
+          <li><a href="blog.html" title="SULET Blog">动态</a></li>
+          <li><a href="#about" title="About SULET">关于</a></li>
+          <li><a href="#join" title="Join SULET">加入我们</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
 <!--测试时这一部分删去-->
  <h1>请记住我们的新网址：<a href="http://linux.shxy.tuneful.org.cn">linux.shxy.tuneful.org.cn</a></h1>
     <h2>将在 5 秒钟后自动跳转</h2>
         <meta http-equiv="refresh" content="5; URL=http://linux.shxy.tuneful.org.cn">
 </br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>
 <!--以上-->
+<section id="splash">
+    <img src="img/logo.jpg" width=15%>
+  <div class="description"        <p align="center"> <font face="Hack",monospace size=+1>Suihua University Linux Enthusiast Team</font></p>                                                                                                                                               
 
+    绥院Linux爱好者团队，英文名称"Suihua University Linux Enthusiast Team"，缩写"SULET"，由本校Linux爱好者于2022年12月策划并组建。团队秉持开源互助共享的原则，在这里可以学习和交流Linux技                                                                                                 术。遇到问题，可以和志同道合的同学交流，大家都会耐心解答。团队旨在提供一个良好的Linux学习与交                                                                                                流的环境，促进共同发展。当然，更重要的是在这里可以结识到志同道合的好友！                                                                                                                     
+  </div>
+  <div class="button-container">
+    <a href="https://github.com/Linux-SHXY" class="debian-button">Github仓库</a>
+    <a href="blog.html" class="debian-button">最新动态</a>
+    <a href="#join" class="debian-button">加入我们</a>
+    <a href="#about" class="debian-button">了解更多</a>
+    <a href="https://space.bilibili.com/3493075217287480" class="debian-button">观看视频</a>
+  </div>
+</section>
 
+<div class="row">
+  <div class="column">
+    <h2 class="section-title">揭示板</h2>
+    <div class="section">
+      <h2>绥院Linux爱好者团队全新升级</h2>
+      <p>为方便大家交流学习，绥院Linux爱好者团队全面升级，启用多平台交流群（QQ、微信，云湖，telegram等），以及Google Groups邮件列表，建立 GitHub 仓库统一上传文件，并启用了官方网站，欢迎                                                                                                 大家加入！</p>                                                                                                                                                                               
 
+      <h3>简介</h3>
+      <p>新的绥院Linux爱好者团队以 QQ 群和官网为主体，多种交流平台共存的大型交流互助社区。用户可以选择最方便的平台交流，官方动态统一通过官网发布；文件统一使用 GitHub 团队仓库或 123 云盘                                                                                                分享。<br/>                                                                                                                                                                                  
+      GitHub 仓库：<a href="https://github.com/Linux-SHXY" target="_blank">https://github.com/Linux-SHXY</a><br/>                                                                                                                                                                         
+      官网：<a href="https://linux.shxy.tuneful.org.cn" target="_blank">https://linux.shxy.tuneful.org.cn</a></p>                                                                                                                                                                         
 
+      <h3>信息的发布</h3>
+      <p>官方信息将在官网首发，并以链接形式转发到各交流群。官网博客仓库位置：<code>linux-shxy.github.io/blog.html/</code>。添加动态时，只需按本格式在上一条动态上方继续添加即可。</p>                                                                                                     
 
+      <h3>文件的分享</h3>
+      <ul>
+        <li>文件请上传到仓库 <code>sulet</code> 的对应目录；需先压缩再上传。</li>
+        <li>如遇网络问题，可新建 txt 文件，内含文件简介 + 123 云盘链接。</li>
+        <li>请标明文件名；多文件推荐 tar 压缩，不建议 rar（兼容性差）。</li>
+        <li>大于 100 MB 的文件请用 <a href="https://www.123pan.com/" target="_blank">123 云盘</a> 分享，有效期设为永久。</li>                                                                                                                                                             
+      </ul>
+      <p>123 云盘使用步骤：<br/>
+      1. 打开网址注册/登录；<br/>
+      2. 上传文件 → 分享 → 有效期设为永久；<br/>
+      3. 复制分享链接，新建 txt，写明文件名、链接、提取码及说明。</p>
 
-    <p align="center"><img src="img/logo.jpg" width="20%"/></p>
-  	  <p align="center"> <font face="Hack",monospace size=+1>Suihua University Linux Enthusiast Team</font></p>
-    <p>绥院Linux爱好者团队，英文名称“Suihua University Linux Enthusiast Team”，缩写“SULET”，由本校Linux爱好者于2022年12月策划并组建。团队秉持开源互助共享的原则，在这里可以学习和交流Linux技术。遇到问题，可以和志同道合的同学交流，大家都会耐心解答。团队旨在提供一个良好的Linux学习与交流的环境，促进共同发展。当然，更重要的是在这里可以结识到志同道合的好友！</p>
-    <p align="center">
-      <button class="button1"><a href="https://github.com/Linux-SHXY"><font color="#fff" size=+2 >Github仓库</font></a></button>
-      <button class="button1"><a href="blog.html"><font size=+2 color="#fff">最新动态</font></a></button>
-      <button class="button1"><a href="#join"><font size=+2 color="#fff">加入我们</font></a></button>
-      <button class="button1"><a href="#about"><font size=+2 color="#fff">了解更多</font></a></button>
-      <button class="button1"><a href="https://space.bilibili.com/3493075217287480"><font color="#fff" size=+2>观看视频</font></a></button>
-    </p>
-  </main>
-
-  <!-- ======================= 三栏布局 ======================= -->
-  <div class="columns">
-    <!-- ===== 左栏：揭示板 ===== -->
-    <div class="left-column">
-      <div class="section">
-        <h2>揭示板</h2>
-        <div class="section-content" style="max-height:400px;overflow-y:auto;line-height:1.6;">
-          <h2>绥院Linux爱好者团队全新升级</h2>
-          <p>为方便大家交流学习，绥院Linux爱好者团队全面升级，启用多平台交流群（QQ、微信，云湖，telegram等），以及Google Groups邮件列表，建立 GitHub 仓库统一上传文件，并启用了官方网站，欢迎大家加入！</p>
-
-          <h3>简介</h3>
-          <p>新的绥院Linux爱好者团队以 QQ 群和官网为主体，多种交流平台共存的大型交流互助社区。用户可以选择最方便的平台交流，官方动态统一通过官网发布；文件统一使用 GitHub 团队仓库或 123 云盘分享。<br/>
-          GitHub 仓库：<a href="https://github.com/Linux-SHXY" target="_blank">https://github.com/Linux-SHXY</a><br/>
-          官网：<a href="https://linux.shxy.tuneful.org.cn" target="_blank">https://linux.shxy.tuneful.org.cn</a></p>
-
-          <h3>信息的发布</h3>
-          <p>官方信息将在官网首发，并以链接形式转发到各交流群。官网博客仓库位置：<code>linux-shxy.github.io/blog.html/</code>。添加动态时，只需按本格式在上一条动态上方继续添加即可。</p>
-
-          <h3>文件的分享</h3>
-          <ul>
-            <li>文件请上传到仓库 <code>sulet</code> 的对应目录；需先压缩再上传。</li>
-            <li>如遇网络问题，可新建 txt 文件，内含文件简介 + 123 云盘链接。</li>
-            <li>请标明文件名；多文件推荐 tar 压缩，不建议 rar（兼容性差）。</li>
-            <li>大于 100 MB 的文件请用 <a href="https://www.123pan.com/" target="_blank">123 云盘</a> 分享，有效期设为永久。</li>
-          </ul>
-          <p>123 云盘使用步骤：<br/>
-          1. 打开网址注册/登录；<br/>
-          2. 上传文件 → 分享 → 有效期设为永久；<br/>
-          3. 复制分享链接，新建 txt，写明文件名、链接、提取码及说明。</p>
-
-                    群聊详见“加入我们”
-        </div>
-      </div>
-    </div>
-
-    <!-- ===== 中间栏 ===== -->
-    <div class="middle-column">
-      <div id="about" class="section">
-        <h2>关于我们</h2>
-        <div class="section-content">
-          <p class="small-text">不能看？点击<a href="img/about.pdf">这里</a></p>
-          <embed src="img/about.pdf" width="100%" height="400px">
-        </div>
-      </div>
-
-      <div id="join" class="section">
-        <h2>加入我们</h2>
-        <div class="section-content">
-          <p>新的绥院Linux爱好者团队是以QQ群和官网为主体, 多种交流平台共存的大型交流互助社区, 用户可以选择加入自己方便的平台进行交流, 使用官网统一发布官方动态，使用github团队仓库统一分享文件</p>
-          <div style="display:flex;justify-content:space-around;">
-            <div style="text-align:center;">
-              <h3>QQ群</h3>
-              <img src="img/qq.jpg" alt="QQ群二维码" style="width:150px;">
-            </div>
-            <div style="text-align:center;">
-              <h3>微信群</h3>
-              <img src="img/wechat.png" alt="微信群二维码" style="width:150px;">
-            </div>
-          </div>
-          <h3>Telegram Channel: @linux-shxy</h3>
-          <h3>Google Group: <a href="https://groups.google.com/g/linux-shxy" target="_blank">https://groups.google.com/g/linux-shxy</a></h3>
-          <h3>云湖群ID: 289891461</h3>
-        </div>
-      </div>
-    </div>
-
-    <!-- ===== 右栏 ===== -->
-    <div class="right-column">
-      <div class="section">
-        <h2>最新动态</h2>
-        <div class="section-content">
-          <div id="latest-blog-posts">动态加载中...</div>
-          <div style="text-align:center;margin-top:10px;">
-            <a class="button" href="blog.html">查看全部动态</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="section">
-        <h2>资源下载</h2>
-        <div class="section-content">
-          <ul class="compact small-text">
-            <li><a href="https://yun.139.com/shareweb/#/w/i/2nc6jxagXwKib">优化版Debian V5.0.0</a></li>
-                <li><a href="https://wiwyil2tr.github.io/yhbos/">优化版Debian</a></li>
-            <li><a href="https://github.com/wiwyil2tr/optimizeddebian/raw/main/postinstall.sh">安装后配置脚本</a></li>
-            <li><a href="https://github.com/Linux-SHXY">更多资源...</a></li>
-          </ul>
-        </div>
-      </div>
+      <p>群聊详见"加入我们"</p>
     </div>
   </div>
+  
+  <div class="column">
+    <h2 class="section-title">关于我们</h2>
+    
+    <div id="about" class="section">
+      <p class="small-text">不能看？点击<a href="img/about.pdf">这里</a></p>
+      <div class="pdf-container">
+        <embed src="img/about.pdf" width="100%" height="400px">
+      </div>
+    </div>
 
-  <!-- ======================= 页脚 ======================= -->
- 
+    <h2 class="section-title">加入我们</h2>
+    <div id="join" class="section">
+      <p>我们要找到绥化学院所有使用Linux的同学，欢迎大家加入！新的绥院Linux爱好者团队是以QQ群和官网为主体, 多种交流平台共存的大型交流互助社区, 用户可以选择加入自己方便的平台进行交流, 使用官网统一发布官方动态，使用github团队仓库统一分享文件</p>                                                                                                                                                                                       
+      
+      <div class="qr-container">
+        <div class="qr-item">
+          <h3>QQ群</h3>
+          <img src="img/qq.jpg" alt="QQ群二维码">
+        </div>
+        <div class="qr-item">
+          <h3>微信群</h3>
+          <img src="img/wechat.png" alt="微信群二维码">
+        </div>
+      </div>
+      
+      <ul class="resource-list">
+        <li><strong>Telegram Channel:</strong> @linux-shxy</li>
+        <li><strong>Google Group:</strong> <a href="https://groups.google.com/g/linux-shxy" target="_blank">https://groups.google.com/g/linux-shxy</a></li>                                                                                                                               
+        <li><strong>云湖群ID:</strong> 289891461</li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="column">
+    <h2 class="section-title">最新动态</h2>
+    
+    <div class="section">
+      <div id="latest-blog-posts">动态加载中...</div>
+      <div style="text-align:center; margin-top:15px;">
+        <a class="debian-button" href="blog.html">查看全部动态</a>
+      </div>
+    </div>
 
-  <!-- ======================= 动态加载脚本 ======================= -->
-  <script>
-  (function(){
-    const BLOG_URL='blog.html',MAX_POSTS=3;
-    fetch(BLOG_URL)
-      .then(r=>r.ok?r.text():Promise.reject(r.status))
-      .then(html=>{
-        const tmp=document.createElement('div');
-        tmp.innerHTML=html;
-        const posts=tmp.querySelectorAll('.blog-post');
-        const box=document.getElementById('latest-blog-posts');
-        box.innerHTML='';
-        for(let i=0;i<Math.min(MAX_POSTS,posts.length);i++) box.appendChild(posts[i].cloneNode(true));
-        if(!posts.length) box.innerHTML='<p>暂无动态</p>';
-      })
-      .catch(err=>{
-        document.getElementById('latest-blog-posts').innerHTML='<p>动态加载失败</p>';
-        console.error(err);
-      });
-  })();
-  </script>
+    <div class="section">
+      <h3>资源下载</h3>
+      <ul class="resource-list">
+        <li><a href="https://yun.139.com/shareweb/#/w/i/2nc6jxagXwKib">优化版Debian V5.0.0</a></li>                                                                                                                                                                                       
+        <li><a href="https://wiwyil2tr.github.io/yhbos/">优化版Debian</a></li>
+        <li><a href="https://github.com/wiwyil2tr/optimizeddebian/raw/main/postinstall.sh">安装后配置脚本</a></li>                                                                        
+        <li><a href="https://github.com/Linux-SHXY">更多资源...</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<footer id="footer">
+  <hr>
+  <p>如果您想联系我们，请阅读我们的<a href="#join">联系方式页面</a>. 网站的源代码可<a href="https://github.com/Linux-SHXY">在此处找到</a>.</p>                                            
+  <p><img src="img/logo.jpg" width="25" alt="SULET Logo"> Copyright &copy; 2022-2025 Suihua University Linux Enthusiast Team</p>                                                          
+  <p>
+    <a href="http://www.beian.gov.cn/" target="_blank">辽ICP备2024035379号-2</a>
+    <img src="img/bzan.png" width="20" alt="备案图标">
+    <a href="https://beian.mps.gov.cn/#/query/webSearch?code=21102102000269" target="_blank">辽公网安备21102102000269号</a>                                                               
+  </p>
+</footer>
+
+<script>
+(function(){
+  const BLOG_URL='blog.html',MAX_POSTS=3;
+  fetch(BLOG_URL)
+    .then(r=>r.ok?r.text():Promise.reject(r.status))
+    .then(html=>{
+      const tmp=document.createElement('div');
+      tmp.innerHTML=html;
+      const posts=tmp.querySelectorAll('.blog-post');
+      const box=document.getElementById('latest-blog-posts');
+      box.innerHTML='';
+      for(let i=0;i<Math.min(MAX_POSTS,posts.length);i++) box.appendChild(posts[i].cloneNode(true));                                                                                      
+      if(!posts.length) box.innerHTML='<p>暂无动态</p>';
+    })
+    .catch(err=>{
+      document.getElementById('latest-blog-posts').innerHTML='<p>动态加载失败</p>';
+      console.error(err);
+    });
+})();
+</script>
+
 </body>
 </html>
